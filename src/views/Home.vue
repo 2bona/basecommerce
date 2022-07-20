@@ -16,13 +16,13 @@
           
         </v-card>
       </v-flex>
-      <v-flex v-show="!loading" class="pa-3" v-for="(n, i) in products" :key="i" xs6 sm4>
+      <v-flex v-show="!loading" class="pa-2" v-for="(n, i) in products" :key="i" xs6 sm4>
         <v-card @click="openProduct(n)">
           <v-avatar tile height="200px" width="100%"><v-img contain :src="n.image || 'https://res.cloudinary.com/base-uni/image/upload/v1658076722/alpha_connect/C7E03945-30FB-49E5-90AF-FE6D67322900_kegufu.png'"></v-img></v-avatar>
           <div class="pa-2">
 
 <p class="mb-2 text-capitalize text-truncate font-weight-medium">{{n.name}}</p>
-<p class="mb-2">N{{n.price}}</p>
+<p class="mb-2">N{{n.price | price}}</p>
 <v-btn color="#10417d" dark class="font-weight-bold" small>buy now</v-btn>
           </div>
         </v-card>

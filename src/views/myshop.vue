@@ -59,7 +59,7 @@
           <div class="pa-2">
 
 <p class="mb-2 font-weight-medium">{{n.name}}</p>
-<p class="mb-2">N{{n.price}}</p>
+<p class="mb-2">N{{n.price | price}}</p>
 <v-btn @click="deleteProduct(n.id)" :loading="loading" color="red" dark icon class="font-weight-bold" small><v-icon>mdi-trash-can</v-icon></v-btn>
           </div>
         </v-card>
