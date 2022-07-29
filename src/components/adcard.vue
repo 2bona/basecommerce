@@ -6,11 +6,11 @@
   </v-card>
   <p class="font-weight-bold text--darken-2 grey--text mt-5 mb-0">Contact us</p>
   <v-layout wrap class="grey--text body-2">
-<v-flex xs4 class="font-weight-bold mt-3">Phone No</v-flex>
-<v-flex xs8 class="text-right mt-3"> 08033685498</v-flex>
+<v-flex xs4 class="font-weight-bold mt-3">IG Handle</v-flex>
+<v-flex xs8 class="text-right mt-3"> @eversoftcart</v-flex>
 <v-flex xs4 class="font-weight-bold mt-3">Email</v-flex>
-<v-flex xs8 class="text-right mt-3">sayhitobona@gmail.com</v-flex>
-    <v-flex xs12 class="mt-12"> © Copyright 2022 Ever Cart ltd.</v-flex>
+<v-flex xs8 class="text-right mt-3">eversoft001@gmail.com</v-flex>
+    <v-flex xs12 class="mt-12"> © Copyright 2022 Ever Cart Ltd.</v-flex>
   </v-layout>
 </div>
 </template>

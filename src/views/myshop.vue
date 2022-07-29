@@ -106,7 +106,7 @@ export default {
     name: '',
     price: '',
     description: '',
-    categories: ['Clothes', 'Phones', 'Laptops', 'Provisions', 'Stationaries','Clothes', 'Phones', 'Laptops', 'Provisions', 'Stationaries'],
+    categories: ['Food', 'Clothing and acessories', 'Health and Beauty', 'Phones', 'Laptops', 'Provisions', 'Stationaries'],
     img: "https://res.cloudinary.com/base-uni/image/upload/v1658076824/alpha_connect/GWC_ALt_logo_1_zkglzr.png"
   }),
      computed:{

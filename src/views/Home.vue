@@ -68,10 +68,10 @@ export default {
     headernav,
      adcard
     },
-      data: () => ({
+  data: () => ({
     loading:false,
-   category: '',
-    categories: ['Clothes', 'Phones', 'Laptops', 'Provisions', 'Stationaries'],
+    category: '',
+    categories: ['Food', 'Clothing and acessories', 'Health and Beauty', 'Phones', 'Laptops', 'Provisions', 'Stationaries'],
     description: '',
     img2: "https://res.cloudinary.com/base-uni/image/upload/v1658076722/alpha_connect/C7E03945-30FB-49E5-90AF-FE6D67322900_kegufu.png",
   }),
