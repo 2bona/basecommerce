@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex align-center justify-space-between">
-    <p @click="$router.push('/')" class="font-weight-bold mb-0" style="font-size: 20px">E Commerce</p>
+    <p @click="$router.push('/')" class="font-weight-black primary--text text--darken-4 mb-0" style="font-size: 25px">Ever<span class="teal--text text--lighten-3 ">Cart</span></p>
     <v-btn v-if="token" to="/myshop" depressed> my shop </v-btn>
     <v-avatar @click="$router.push('/profile')" size="60" class="">
       <v-img :src="img2"></v-img>

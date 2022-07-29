@@ -1,15 +1,34 @@
 <template>
   <v-container style="max-width:990px" class="home">
   <headernav />
+<v-layout class="pt-5" wrap>
+  <v-flex class="my-8" xs12>
+<v-card outlined color="#f5f5f5" min-height="50vh">
+  <v-layout class="  d-flex justify-space-between align-center" wrap>
+
+  <v-flex md6 xs12>
+
+  <p class="pl-0  font-weight-medium" style="font-size:50px;">One Stop <span class="teal--text text--lighten-3 ">Shop</span><br> For Your Needs.</p>
+  <v-btn rounded v-if="!token" @click="$router.push('/signup')" x-large style="color:" depressed color=" primary darken-4" dark  class="font-weight-black px-12 text-capitalize teal--text text--lighten-3 my-4">Get Started</v-btn>
+  </v-flex>
+  <v-flex md6 style="position:relative" xs12>
+
+    <v-avatar tile height="50vh"  width="100%">
+
+  <v-img  style="background-position:top center!important" src="https://res.cloudinary.com/payhospi/image/upload/v1659096876/E-Commerce_Site_-_3D_SEO_Illustration_p_hd2aqm.png"></v-img>
+    </v-avatar>
+  </v-flex>
+  </v-layout>
+</v-card>
+  </v-flex>
+  <v-flex xs12 md8>
 <div style="overflow-x:scroll" class="py-3">
 <div style="" class="d-inline-flex pt-0">
-<v-chip :dark="category== ''" @click="getProducts()" style="width:auto" class="mr-3">All</v-chip>
-<v-chip :dark="category== n" @click="getProductsByCategory(n)" style="width:auto" class="mr-3" v-for="(n, i) in categories" :key="i">{{n}}</v-chip>
+<v-chip :dark="category== ''" :color="category== ''? '#001e67':'#f5f5f5'" @click="getProducts()" style="width:auto" class="rounded-xl mr-3">All</v-chip>
+<v-chip :dark="category== n"  :color="category== n? '#001e67':'#f5f5f5'" @click="getProductsByCategory(n)" style="width:auto" class="rounded-xl mr-3" v-for="(n, i) in categories" :key="i">{{n}}</v-chip>
 <div class="px-5"></div>
 </div>
 </div>
-<v-layout class="pt-5" wrap>
-  <v-flex xs12 md8>
     <v-layout wrap>
       <v-flex v-show="loading" class="pa-3" v-for="(n) in ['j', 'k', 'l']" :key="n" xs6 sm4>
         <v-card flat color="grey lighten-3" width="100%" height="308px" >
@@ -87,7 +106,7 @@ this.getProducts()
       getProducts(){
         this.loading = true
         this.category = ''
-        axios.get('/product').then((res)=>{
+        axios.get('/product?shop=ecommerce').then((res)=>{
           this.products = res.data.products
           this.loading = false
   })

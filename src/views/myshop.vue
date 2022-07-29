@@ -26,6 +26,12 @@
           label="Price"
           required
         ></v-text-field>
+               <v-file-input
+    label="Product Image"
+     :loading="loading2"
+    @change="fileChange"
+    prepend-icon="mdi-camera"
+  ></v-file-input>
         <v-textarea
           v-model="description"
           label="Description"
@@ -82,6 +88,7 @@
 import axios from "axios";
 const headernav = () => import("../components/headernav.vue");
 const adcard = () => import("../components/adcard.vue");
+import imageCompression from 'browser-image-compression';
 
 // @ is an alias to /src
 
@@ -94,6 +101,8 @@ export default {
   data: () => ({
     loading:false,
     category: '',
+        loading2:false,
+    attachments: [],
     name: '',
     price: '',
     description: '',
@@ -128,16 +137,48 @@ export default {
       this.loading = false
       })
     },
+   fileChange(e) {
+        if(!e.name)return
+          
+          this.attachments = [];
+      
+            this.loading2 = true;
+console.log(e)
+ 
+        var options = {
+    maxSizeMB: 1,
+    maxWidthOrHeight: 1920,
+    useWebWorker: true
+  }
 
-    addProduct(){
+  imageCompression(e, options)
+    .then( (compressedFile)=> {
+      this.attachments.push(compressedFile);
+      this.loading2 = false;
+    })
+    .catch(function () {
+      this.loading2 = false;
+
+    });
+
+
+    
+    },
+      addProduct(){
+      const sn = this
       this.loading = true
-      axios.post('product/create',{
-        name: this.name,
-        price: this.price,
-        description: this.description,
-        user_id: this.user.id,
-        category: this.category,
-      }).then((res)=>{
+      const config = { headers: { "Content-Type": "multipart/form-data" } };
+    const fd = new FormData();
+   
+        fd.append("files[" + 0 + "]", sn.attachments[0]);
+        fd.append("name", sn.name)
+        fd.append("price", sn.price)
+        fd.append("description", sn.description)
+        fd.append("user_id", sn.user.id)
+        fd.append("category", sn.category)
+        fd.append("shop", 'ecommerce')
+    
+      axios.post('product/create',fd, config).then((res)=>{
         this.my_products = res.data.success
       this.loading = false
        })
