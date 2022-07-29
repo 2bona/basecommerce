@@ -6,7 +6,7 @@
 <v-card outlined color="#f5f5f5" min-height="50vh">
   <v-layout class="  d-flex justify-space-between align-center" wrap>
 
-  <v-flex md6 xs12>
+  <v-flex md6 :class="$vuetify.breakpoint.smAndUp? '': 'text-center'" xs12>
 
   <p class="pl-0  font-weight-medium" style="font-size:50px;">One Stop <span class="teal--text text--lighten-3 ">Shop</span><br> For Your Needs.</p>
   <v-btn rounded v-if="!token" @click="$router.push('/signup')" x-large style="color:" depressed color=" primary darken-4" dark  class="font-weight-black px-12 text-capitalize teal--text text--lighten-3 my-4">Get Started</v-btn>
@@ -22,10 +22,10 @@
 </v-card>
   </v-flex>
   <v-flex xs12 md8>
-<div style="overflow-x:scroll" class="py-3">
+<div style="overflow-x:scroll" class="py-3 pb-6">
 <div style="" class="d-inline-flex pt-0">
-<v-chip :dark="category== ''" :color="category== ''? '#001e67':'#f5f5f5'" @click="getProducts()" style="width:auto" class="rounded-xl mr-3">All</v-chip>
-<v-chip :dark="category== n"  :color="category== n? '#001e67':'#f5f5f5'" @click="getProductsByCategory(n)" style="width:auto" class="rounded-xl mr-3" v-for="(n, i) in categories" :key="i">{{n}}</v-chip>
+<v-chip :dark="category== ''" :color="category== ''? '#001e67':'#f5f5f5'" @click="getProducts()" style="width:auto" class="rounded-xl font-weight-bold mr-3">All</v-chip>
+<v-chip :dark="category== n"  :color="category== n? '#001e67':'#f5f5f5'" @click="getProductsByCategory(n)" style="width:auto" class="rounded-xl font-weight-bold mr-3" v-for="(n, i) in categories" :key="i">{{n}}</v-chip>
 <div class="px-5"></div>
 </div>
 </div>
@@ -36,13 +36,13 @@
         </v-card>
       </v-flex>
       <v-flex v-show="!loading" class="pa-2" v-for="(n, i) in products" :key="i" xs6 sm4>
-        <v-card @click="openProduct(n)">
-          <v-avatar tile height="200px" width="100%"><v-img contain :src="n.image || 'https://res.cloudinary.com/base-uni/image/upload/v1658076722/alpha_connect/C7E03945-30FB-49E5-90AF-FE6D67322900_kegufu.png'"></v-img></v-avatar>
+        <v-card outlined  @click="openProduct(n)">
+          <v-avatar tile height="200px" width="100%"><v-img  :src="n.image || 'https://res.cloudinary.com/base-uni/image/upload/v1658076722/alpha_connect/C7E03945-30FB-49E5-90AF-FE6D67322900_kegufu.png'"></v-img></v-avatar>
           <div class="pa-2">
 
 <p class="mb-2 text-capitalize text-truncate font-weight-medium">{{n.name}}</p>
 <p class="mb-2">N{{n.price | price}}</p>
-<v-btn color="#10417d" dark class="font-weight-bold" small>buy now</v-btn>
+<v-btn color="#fff" style="color:#10417d" dark rounded class="text-capitalize font-weight-bold" small>buy now</v-btn>
           </div>
         </v-card>
       </v-flex>

@@ -14,7 +14,7 @@
             <v-flex  class=" align-center px-3" xs12>
     <p style="font-size:30px" class="grey--text mb-2 text--darken-3 text-capitalize font-weight-bold">{{product.name}} </p>
     <p style="font-size:20px" class="font-weight-bold grey--text text--darken-2">N{{product.price | price}}</p>
-              <v-btn :loading="loading" @click="buyItem()" class="font-weight-bold" color="#10417d" large dark>Buy this  item<v-icon size="15" class="ml-2">mdi-cart</v-icon></v-btn>
+              <v-btn :loading="loading" rounded @click="buyItem()" class="teal--text text--lighten-3 font-weight-bold" color="#10417d" large dark>Buy this  item<v-icon size="15" class="ml-2">mdi-cart</v-icon></v-btn>
              <p class="mt-4 grey--text text--darken-1">{{product.description}}</p>
               </v-flex>
         </v-card>
